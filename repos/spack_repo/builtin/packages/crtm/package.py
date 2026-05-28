@@ -66,6 +66,8 @@ class Crtm(CMakePackage):
     version("2.4.0.1", tag="v2.4.0_emc.3", commit="7ecad4866c400d7d0db1413348ee225cfa99ff36")
     # REL-2.4.0_emc (v2.4.0 ecbuild does not work)
     version("2.4.0", commit="5ddd0d6b0138284764065feda73b5adf599082a2")
+    # Uses the tip of REL-2.3.0_emc branch
+    version("2.3.0", commit="99760e693ce3b90a3b3b0e97d80972b4dfb61196", deprecated=True)
 
     variant(
         "fix", default=False, description='Download CRTM coefficient or "fix" files (several GBs).'
@@ -135,7 +137,7 @@ class Crtm(CMakePackage):
     def cmake_config_softlinks(self):
         cmake_config_files = glob.glob(join_path(self.prefix, "cmake/crtm/*"))
         for srcpath in cmake_config_files:
-            os.symlink(srcpath, join_path(self.prefix, "cmake", os.path.basename(srcpath)))
+            symlink(srcpath, join_path(self.prefix, "cmake", os.path.basename(srcpath)))
 
     def check(self):
         # Until issues with fixed data organization are resolved, just run the basic test
