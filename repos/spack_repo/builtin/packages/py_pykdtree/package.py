@@ -16,7 +16,7 @@ class PyPykdtree(PythonPackage):
     license("LGPL-2.1-or-later")
 
     # Add the relevant versions and their SHA-256 checksums from PyPI
-    version("1.4.3", sha256="4b88d3c907b8a5bf0727c9b8cf44de8b4380eb9a3ff170942c7e0f63b21b7ff3")
+    version("1.4.3", sha256="d9187930ffb8c822c52595b64948b47346694ee2a49e2702420b58f743d786f5")
 
     # Build system backends
     depends_on("python@3.9:", type=("build", "run"))
